@@ -1,0 +1,35 @@
+
+sandr@SASHA MINGW64 ~
+$ ssh -i ~/.ssh/id_rsa ec2-user@linux.telran-edu.de
+Last login: Wed Sep 20 14:35:12 2023 from host-37-247-60-225.wtvk.pl
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+Welcome to Amazon server, Tel-ran user!
+16 package(s) needed for security, out of 46 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-33-20 ~]$ cd /opt/040423_evening/aserhiyevich
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ touch taskAleksandra.sh
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ chmod +x taskAleksandra.sh
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ nano taskAleksandra.sh
+
+#!/bin/bash
+
+tdate=$(date +"%H%M%S")
+for run in {1..10}
+do
+number=$run
+file="${number}${tdate}"
+touch $file
+done
+
+#Crontab command
+
+/15 * * * * /opt/040423_evening/aserhiyevich/taskAleksandra.sh
+
+
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ crontab -l
+/15 * * * /opt/040423_evening/aserhiyevich/taskAleksandra.sh
