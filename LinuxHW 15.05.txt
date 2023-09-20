@@ -1,0 +1,38 @@
+sandr@SASHA MINGW64 ~
+$ ssh -i ~/.ssh/id_rsa ec2-user@linux.telran-edu.de
+Last login: Tue Sep 19 21:14:48 2023 from p4fc3da3d.dip0.t-ipconnect.de
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+Welcome to Amazon server, Tel-ran user!
+16 package(s) needed for security, out of 46 available
+Run "sudo yum update" to apply all updates.
+[ec2-user@ip-172-31-33-20 ~]$ cd /opt/040423_evening/aserhiyevich
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ touch .testscript.sh
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ nano .testscript.sh
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ chmod +x .testscript.sh
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ ./.testscript.sh
+your name is: ec2-user
+your working directory is: /opt/040423_evening/aserhiyevich
+Number of users: 3
+done
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ chmod g-r .testscript.sh
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ chmod a-x .testscript.sh
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ ls -la /opt/040423_evening/aserhiyevich
+total 4
+drwxrwxr-x  2 ec2-user ec2-user  28 Sep 20 14:39 .
+drwxrwxr-x 21 ec2-user ec2-user 329 Jun 10 09:06 ..
+-rw--w-r--  1 ec2-user ec2-user 159 Sep 20 18:54 .testscript.sh
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ cat /opt/040423_evening/aserhiyevich/.testscript.sh
+#!/bin/bash
+echo "your name is: $USER"
+echo "your working directory is: $PWD"
+ssh_processes=$(pgrep -c ssh)
+echo "Number of users: $ssh_processes"
+echo "done"
+[ec2-user@ip-172-31-33-20 aserhiyevich]$ ./.testscript.sh
+-bash: ./.testscript.sh: Permission denied
+[ec2-user@ip-172-31-33-20 aserhiyevich]$
